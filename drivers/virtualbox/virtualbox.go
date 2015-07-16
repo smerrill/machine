@@ -254,7 +254,6 @@ func (d *Driver) Create() error {
 
 	if err := vbm("modifyvm", d.MachineName,
 		"--nic1", "nat",
-		"--nictype1", "82540EM",
 		"--cableconnected1", "on"); err != nil {
 		return err
 	}
@@ -617,7 +616,6 @@ func (d *Driver) setupHostOnlyNetwork(machineName string) error {
 
 	if err := vbm("modifyvm", machineName,
 		"--nic2", "hostonly",
-		"--nictype2", "82540EM",
 		"--hostonlyadapter2", hostOnlyNetwork.Name,
 		"--cableconnected2", "on"); err != nil {
 		return err
